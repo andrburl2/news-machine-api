@@ -10,7 +10,11 @@ module.exports.getInfo = (req, res, next) => {
   User.findById(req.user._id)
     .then((user) => {
       if (user) {
-        res.send({ name: user.name, email: user.email });
+        res.send({
+          status: 200,
+          name: user.name,
+          email: user.email,
+        });
       } else {
         throw new NotFoundError('Не удается найти пользователя');
       }
@@ -27,13 +31,15 @@ module.exports.createUser = (req, res, next) => {
       name, email, password: hash,
     }))
     .then((user) => {
-      res.send({
-        user: {
-          _id: user._id,
-          name: user.name,
-          email: user.email,
-        },
-      });
+      res.status(201)
+        .send({
+          status: 201,
+          user: {
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+          },
+        });
     })
     .catch(next);
 };
@@ -55,7 +61,17 @@ module.exports.login = (req, res, next) => {
         sameSite: true,
       });
 
-      res.send(req.cookies.jwt);
+      res.status(200).send({
+        status: 200,
+      });
     })
     .catch(next);
+};
+
+module.exports.logout = (req, res, next) => {
+  res.clearCookie('jwt', {
+    httpOnly: true,
+  });
+
+  res.status(200).send({ status: 200 });
 };
