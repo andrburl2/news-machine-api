@@ -5,7 +5,7 @@ const NotFoundError = require('../errors/not-found-error');
 
 module.exports.getArticles = (req, res, next) => {
   Card.find({})
-    .then((articles) => res.send({ data: articles }))
+    .then((articles) => res.send({ status: 200, data: articles }))
     .catch(next);
 };
 
@@ -17,7 +17,8 @@ module.exports.createArticle = (req, res, next) => {
   Card.create({
     keyword, title, text, date, source, link, image, owner: req.user._id,
   })
-    .then((article) => res.send({
+    .then((article) => res.status(201).send({
+      status: 201,
       keyword: article.keyword,
       title: article.title,
       text: article.text,
@@ -25,17 +26,19 @@ module.exports.createArticle = (req, res, next) => {
       source: article.source,
       link: article.link,
       image: article.image,
+      id: article.id,
     }))
     .catch(next);
 };
 
 module.exports.deleteArticle = (req, res, next) => {
-  Card.findById(req.params.articleId).select('+owner')
+  Card.findById(req.params.articleId)
+    .select('+owner')
     .then((article) => {
       if (article) {
         if (req.user._id.toString() === article.owner.toString()) {
           Card.deleteOne(article)
-            .then(() => res.send(article));
+            .then(() => res.send({ status: 200 }));
         } else {
           throw new UnauthorizedError('Нельзя удалить чужую статью');
         }

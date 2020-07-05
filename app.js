@@ -10,6 +10,7 @@ const bodyParser = require('./middlewares/bodyParser');
 const cookieParser = require('./middlewares/cookieParser');
 const helmet = require('./middlewares/helmet');
 const rateLimit = require('./middlewares/rateLimit');
+const cors = require('./middlewares/cors');
 
 mongoose.connect(MONGO_ADRESS, {
   useNewUrlParser: true,
@@ -27,6 +28,8 @@ mongoose.connect(MONGO_ADRESS, {
 
     app.use(bodyParser);
     app.use(cookieParser);
+
+    app.use(cors);
 
     app.use('/', router);
   })

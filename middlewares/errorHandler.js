@@ -6,7 +6,7 @@ const errorHandler = (err, req, res, next) => {
   }
 
   if (err.name === 'MongoError') {
-    statusCode = 400;
+    statusCode = 409;
     message = 'Данный email уже зарегистрирован';
   }
 
