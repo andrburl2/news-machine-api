@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NewsMachine - Главная</title>
+  <link rel="stylesheet" href="main/main.dd33c7fadc0b9da1a8b6.css">
+  <link rel="icon" href="./images/favicon.png" sizes="32x32" type="image/png">
+</head>
+
+<body class="body">
+
+  <header class="header">
+    <div class="header__content">
+      <a href="./" class="header__title">NewsMachine</a>
+
+      <nav class="header__nav">
+        <div class="header__nav-item">
+          <p class="header__link header__link_active">Главная</p>
+          <div class="header__selected-line"></div>
+        </div>
+
+        <div class="header__nav-item header__nav-item_link hidden">
+          <a href="./articles" class="header__link">Сохранённые статьи</a>
+        </div>
+
+        <button class="header__button header__button_type_login">Авторизоваться</button>
+
+        <button class="header__button header__button_type_logout hidden"></button>
+      </nav>
+
+      <button class="header__mobile-button"></button>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section class="search">
+      <div class="search__content">
+        <h2 class="search__title">Что в мире творится?</h2>
+        <p class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+
+        <form name="searchForm" class="search__form">
+          <input name="search" type="text" placeholder="Введите тему новости" class="search__input" minlength="2" maxlength="30" required>
+          <p class="search__error"></p>
+          <button type="submit" class="search__button form__button" disabled>Искать</button>
+        </form>
+
+      </div>
+    </section>
+
+    <section class="results">
+      <div class="results__content hidden">
+        <h2 class="results__title">Результаты поиска</h2>
+
+        <div class="results__grid-container">
+        </div>
+
+        <button class="results__button">Показать еще</button>
+      </div>
+
+      <!-- Прелоудер -->
+      <div class="preloader__container hidden">
+        <i class="preloader"></i>
+
+        <p class="preloader__text">Идет поиск новостей...</p>
+      </div>
+
+      <!-- Не найдено -->
+      <div class="not-found hidden">
+        <img src="./images/not-found.svg" alt="Ничего не найдено" class="not-found__img">
+
+        <h2 class="not-found__title">Ничего не найдено</h2>
+        <p class="not-found__text">К сожалению по вашему запросу ничего не найдено.</p>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="about__content">
+        <picture class="about__picture">
+          <source srcset="./images/low.jpg" media="(max-width: 1024px) and (min-width: 600px)">
+          <source srcset="./images/middle.jpg" media="(max-width: 600px)">
+
+          <img class="about__picture" src="./images/high.jpg" alt="Автор проекта">
+        </picture>
+
+        <div class="about__text-column">
+          <h2 class="about__title">Об авторе</h2>
+
+          <p class="about__text">
+            Меня зовут Андрей Бурлаков, я начинающий веб-разработчик. С августа 2019 года я начал обучаться на крусах Яндекс Практикум, а с января 2020 года параллельно с этим работать. К сожалению
+            проработал я всего 3 месяца, но успел получить немного настоящего опыта.
+          </p>
+          <p class="about__text">
+            Я умею верстать, используя <b>HTML</b> и <b>CSS</b>, адаптируя под разные разрешения страницы, оживляя их CSS-анимациями.
+            С помощью <b>JS</b> пишу внутреннюю логику сайта. <b>Webpack</b>-ом собираю все это вместе, транспилирую и минифицирую код, также контролирую версии проекта <b>git</b>-ом.
+            Я создаю свои сервера на <b>Node.js</b> и <b>Express</b>, работаю с <b>MongoDB</b>.
+          </p>
+          <p class="about__text">
+            Этот проект - совокупность всех моих знаний и умений, которые я получил за время обучения. Вы можете посмотреть его код на github и оценить мои навыки. После окончания обучения я продолжу
+            учиться и буду искать работу. Хочу сказать спасибо Практикуму за помощь во входе в мир IT.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__content">
+      <p class=footer__copyright>&copy; 2020 NewsMachine, Powered by News API</p>
+
+      <nav class="footer__nav">
+        <a href="./" class="footer__link">Главная</a>
+        <a href="https://praktikum.yandex.ru" target="_blank" class="footer__link">Яндекс.Практикум</a>
+
+        <ul class="footer__links-row">
+          <li class="footer__link-item">
+            <a href="https://github.com/andrburl2" target="_blank" class="footer__icon-link"><img src="./images/github_icon.svg" alt="Github icon" class="footer__img"></a>
+          </li>
+          <li class="footer__link-item">
+            <a href="https://www.facebook.com/andrey.burlakov.779" target="_blank" class="footer__icon-link"><img src="./images/fb_icon.svg" alt="Facebook icon" class="footer__img"></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Попап входа -->
+  <div class="popup popup_type_signin hidden">
+    <div class="popup__content">
+      <button class="popup__close-button"></button>
+      <h2 class="popup__title">Вход</h2>
+
+      <form name="signin" class="popup__form">
+        <h3 class="popup__input-title">Email</h3>
+        <input name="email" class="popup__input" placeholder="Введите почту" type="email" required>
+        <p class="popup__error-text"></p>
+
+        <h3 class="popup__input-title">Пароль</h3>
+        <input name="password" class="popup__input" placeholder="Введите пароль" type="password" minlength="6" required>
+        <p class="popup__error-text"></p>
+
+        <div class="popup__button-container">
+          <p class="popup__error-text popup__error-text_type_main"></p>
+          <button type="submit" class="popup__submit-button form__button" disabled>Войти</button>
+        </div>
+      </form>
+
+      <div class="popup__switch">
+        <p class="popup__switch-text">или</p>
+        <button class="popup__switch-button popup__switch_target_signup">Зарегистрироваться</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Попап регистрации -->
+  <div class="popup popup_type_signup hidden">
+    <div class="popup__content">
+      <button class="popup__close-button"></button>
+      <h2 class="popup__title">Регистрация</h2>
+
+      <form name="signup" class="popup__form">
+        <h3 class="popup__input-title">Email</h3>
+        <input name="email" class="popup__input" placeholder="Введите почту" type="email" required>
+        <p class="popup__error-text"></p>
+
+        <h3 class="popup__input-title">Пароль</h3>
+        <input name="password" class="popup__input" placeholder="Введите пароль" type="password" minlength="6" required>
+        <p class="popup__error-text"></p>
+
+        <h3 class="popup__input-title">Имя</h3>
+        <input name="name" class="popup__input" placeholder="Введите своё имя" type="text" minlength="2" maxlength="30" required>
+        <p class="popup__error-text"></p>
+
+        <div class="popup__button-container">
+          <p class="popup__error-text popup__error-text_type_main"></p>
+          <button type="submit" class="popup__submit-button form__button" disabled>Зарегистрироваться</button>
+        </div>
+      </form>
+
+      <div class="popup__switch">
+        <p class="popup__switch-text">или</p>
+        <button class="popup__switch-button popup__switch_target_signin">Войти</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Попап после регистрации -->
+  <div class="popup popup_type_success hidden">
+    <div class="popup__content">
+      <button class="popup__close-button"></button>
+      <h2 class="popup__title">Пользователь успешно зарегистрирован!</h2>
+
+      <button class="popup__enter-button">Выполнить вход</button>
+    </div>
+  </div>
+
+  <script src="main/main.df586de7a053dec7d2ac.js"></script>
+</body>
+</html>
