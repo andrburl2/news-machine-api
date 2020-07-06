@@ -2,7 +2,7 @@ const router = require('express').Router();
 const cors = require('cors');
 
 const corsOptions = {
-  origin: 'https://andrburl2.github.io/news-machine-frontend/',
+  origin: 'https://andrburl2.github.io',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   optionsSuccessStatus: 200,
   credentials: true,
