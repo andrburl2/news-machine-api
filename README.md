@@ -1,17 +1,17 @@
 # News-machine
 _Дипломная работа курса веб-разработчик **Яндекс Практикум**_. Проект создан в учебных целях и используется для сохранения интересных новостей. Сейчас реализовано:
 - [x] Создать backend
-- [ ] Сверстать сайт
-- [ ] Написать скрипт и подружить все части _сайта_ вместе
+- [x] Сверстать сайт
+- [x] Написать скрипт и подружить все части _сайта_ вместе
 
 ## Информация о сайте:
-  * **домен:** news-machine.tk 
-  * **поддомен:** api.news-machine.tk
-  * **IP сервера:** 84.201.158.166
+  * **домен:** news-machine.ml
+  * **поддомен:** api.news-machine.ml
+  * **IP сервера:** 84.201.128.169
 
 ## Ссылки:
-  * [http://api.news-machine.tk](http://api.news-machine.tk)
-  * [https://api.news-machine.tk](https://api.news-machine.tk)
+  * [http://api.news-machine.ml](http://api.news-machine.ml)
+  * [https://api.news-machine.ml](https://api.news-machine.ml)
 
 ___
 
