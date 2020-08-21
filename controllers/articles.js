@@ -4,7 +4,7 @@ const UnauthorizedError = require('../errors/unauthorized-error');
 const NotFoundError = require('../errors/not-found-error');
 
 module.exports.getArticles = (req, res, next) => {
-  Card.find({})
+  Card.find({ owner: req.user._id })
     .then((articles) => res.send({ status: 200, data: articles }))
     .catch(next);
 };
