@@ -1,7 +1,7 @@
-const error = require('express').Router();
+const NotFound = require('../errors/not-found');
 
-error.use('*', (req, res) => {
-  res.status(404).send({ message: 'Такой страницы не существует' });
-});
+const sendError = (req, res) => {
+  throw new NotFound('Такой страницы не существует');
+};
 
-module.exports = error;
+module.exports = sendError;
