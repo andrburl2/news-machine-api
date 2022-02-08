@@ -34,5 +34,5 @@ mongoose.connect(MONGO_ADRESS, {
     app.use('/', router);
   })
   .catch((err) => {
-    console.log(`Ошибка подключения к базе данных ${err}`);
+    console.error(`Ошибка подключения к базе данных ${err}`);
   });

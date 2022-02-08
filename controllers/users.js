@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = require('../assets/config');
 const User = require('../models/user');
 
-const NotFoundError = require('../errors/not-found-error');
+const NotFound = require('../errors/not-found');
 
 module.exports.getInfo = (req, res, next) => {
   User.findById(req.user._id)
@@ -16,7 +16,7 @@ module.exports.getInfo = (req, res, next) => {
           email: user.email,
         });
       } else {
-        throw new NotFoundError('Не удается найти пользователя');
+        throw new NotFound('Не удается найти пользователя');
       }
     })
     .catch(next);

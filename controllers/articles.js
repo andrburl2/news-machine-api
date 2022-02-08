@@ -1,10 +1,9 @@
 const Card = require('../models/article');
 
-const UnauthorizedError = require('../errors/unauthorized-error');
-const NotFoundError = require('../errors/not-found-error');
+const Unauthorized = require('../errors/unauthorized');
+const NotFound = require('../errors/not-found');
 
 module.exports.getArticles = (req, res, next) => {
-  console.log(req.user._id);
   Card.find({ owner: req.user._id })
     .then((articles) => res.send({ status: 200, data: articles }))
     .catch(next);
@@ -41,10 +40,10 @@ module.exports.deleteArticle = (req, res, next) => {
           Card.deleteOne(article)
             .then(() => res.send({ status: 200 }));
         } else {
-          throw new UnauthorizedError('Нельзя удалить чужую статью');
+          throw new Unauthorized('Нельзя удалить чужую статью');
         }
       } else {
-        throw new NotFoundError('Не удается найти статью');
+        throw new NotFound('Не удается найти статью');
       }
     })
     .catch(next);

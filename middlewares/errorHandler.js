@@ -10,7 +10,10 @@ const errorHandler = (err, req, res, next) => {
     message = 'Данный email уже зарегистрирован';
   }
 
-  res.status(statusCode).send({ message: statusCode === 500 ? 'На сервере произошла ошибка' : message });
+  res.status(statusCode).send({
+    status: statusCode,
+    message: statusCode === 500 ? 'На сервере произошла ошибка' : message,
+  });
 };
 
 module.exports = errorHandler;
